@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -49,10 +50,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Parse data from url in JSON format
+
     private void parseJsonData() {
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://pixabay.com/api/?key=24142055-f5330b530546127304666113b&q=yellow+flowers&image_type=photo&pretty=true";
+        String url = "https://pixabay.com/api/?key=24142055-f5330b530546127304666113b&q=yellow+flowers&image_type=photo";
         StringRequest request = new StringRequest(Request.Method.GET, url, new
                 Response.Listener<String>() {
                     @Override
@@ -80,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(MainActivity.this, "Error: failed to fetch", Toast.LENGTH_SHORT).show();
             }
         });
 

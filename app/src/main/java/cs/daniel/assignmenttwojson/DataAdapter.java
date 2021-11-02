@@ -1,7 +1,6 @@
 package cs.daniel.assignmenttwojson;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +24,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
         this.arrayList = arrayList;
     }
 
+    // Define View Holder
+
     @NonNull
     @Override
     public DataViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,6 +34,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
         DataViewHolder dataViewHolder = new DataViewHolder(view);
         return dataViewHolder;
     }
+
+    // Bind data using Model class
 
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
