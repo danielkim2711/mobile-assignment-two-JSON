@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private void parseJsonData() {
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://pixabay.com/api/?key=24142055-f5330b530546127304666113b&q=yellow+flowers&image_type=photo";
+        String url = "https://pixabay.com/api/?key=24142055-f5330b530546127304666113b&q=dogs&image_type=photo";
         StringRequest request = new StringRequest(Request.Method.GET, url, new
                 Response.Listener<String>() {
                     @Override
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                             JSONArray array = jsonObject.getJSONArray("hits");
                             for (int i = 0; i < array.length(); i++) {
                                 JSONObject dataObject = array.getJSONObject(i);
-                                String image = dataObject.getString("userImageURL");
+                                String image = dataObject.getString("largeImageURL");
                                 String user = dataObject.getString("user");
                                 String like = dataObject.getString("likes");
                                 Model model = new Model(image, user, like);
