@@ -37,7 +37,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
         Model model = arrayList.get(position);
-        Picasso.get().load(model.imageUrl).into(holder.imageView);
+        if (model.imageUrl.isEmpty()) {
+            holder.imageView.setImageResource(R.mipmap.ic_launcher);
+        } else{
+            Picasso.get().load(model.imageUrl).into(holder.imageView);
+        }
         holder.tvUser.setText(model.getUser());
         holder.tvLike.setText(model.getLike());
     }
